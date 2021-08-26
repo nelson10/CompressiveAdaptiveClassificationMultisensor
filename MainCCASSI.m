@@ -121,21 +121,18 @@ elseif(dataset2 ==2)
     gt2 = imresize(gt,0.25,'nearest');
     nc = max(gt(:));
 elseif(dataset2 == 3)
-    load('Hen_FullSpectral.mat');
+     load('Hen_FullSpectral.mat');
     %load('Prism');
-    %load('NelsonCA.mat');
     L1 = 96;
     L2 = 24;
-    cube = dataset(255:255+541,460:460+541,:);
-    cube = imresize(cube,0.5);
+    cube = dataset;
     idx = round(linspace(1,size(cube,3),L2));
     Io = mat2gray(cube(1:end,1:end,idx));
     MS = Io;
-    temp = MS;
     idx = round(linspace(1,size(cube,3),L1));
     Io = cube(1:end,1:end,idx);
     for i=1:L1
-        HS(:,:,i)=imresize(Io(:,:,i),0.25);
+        HS(:,:,i)=imresize(dataset(:,:,i),0.25);
     end
     clear dataset;
     clear cube;
@@ -153,7 +150,6 @@ elseif(dataset2 == 3)
     gt1 = imresize(gt,0.5,'nearest');
     gt2 = imresize(gt,0.125,'nearest');
     nc = max(gt(:));
-    MS = temp;
 else
     %% Pony Dataset
     load('Pony-MS-gt.mat')
