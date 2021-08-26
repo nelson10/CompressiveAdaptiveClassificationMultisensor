@@ -29,7 +29,7 @@ shot2 = Khs(nm); %  number of hiperspectral snapshot
 %% Loading data
 md = 14; % median filter parameter
 adaptive = 1;
-dataset2 = 2; % 0 Pavia, 1 Salinas Valley, 2 Indian pines, 3 Hen
+dataset2 = 3; % 0 Pavia, 1 Salinas Valley, 2 Indian pines, 3 Hen
 
 if(dataset2 == 0)
     %% Pavia Dataset
@@ -37,22 +37,22 @@ if(dataset2 == 0)
     L1 = 96;
     L2 = 24;
     idx = round(linspace(1,size(paviaU,3),L2));
-    Io = mat2gray(paviaU(end-255:end,1:256,idx));
+    Io = mat2gray(paviaU(1:end,1:end,idx));
     MS = Io;
     idx = round(linspace(1,size(paviaU,3),L1));
-    Io = paviaU(end-255:end,1:256,idx);
+    Io = paviaU(1:end,1:end,idx);
     for i=1:L1
         HS(:,:,i)=imresize(Io(:,:,i),0.25);
     end
     clear paviaU;
     load('PaviaU_gt.mat');
     %load('../Data/Salinas_gt.mat');
-    ground_truth = paviaU_gt(end-255:end,1:256);
+    ground_truth = paviaU_gt(1:end,1:end);
     clear paviaU_gt;
-    gt = ground_truth(end-255:end,1:256);
-    R = sum(MS(1:256,1:256,1:8),3);
-    G = sum(MS(1:256,1:256,9:16),3);
-    B = sum(MS(1:256,1:256,17:24),3);
+    gt = ground_truth(1:end,1:end);
+    R = sum(MS(1:end,1:end,1:8),3);
+    G = sum(MS(1:end,1:end,9:16),3);
+    B = sum(MS(1:end,1:end,17:24),3);
     RGB(:,:,1) = B;
     RGB(:,:,2) = G;
     RGB(:,:,3) = R;
@@ -68,19 +68,19 @@ elseif(dataset2 ==1)
     L1 = 96;
     L2 = 24;
     idx = round(linspace(1,size(salinas_corrected,3),L2));
-    MS = mat2gray(salinas_corrected(end-255:end,1:217,idx));
+    MS = mat2gray(salinas_corrected(1:end,1:end,idx));
     
     idx = round(linspace(1,size(salinas_corrected,3),L1));
-    Io = salinas_corrected(end-255:end,1:217,idx);
+    Io = salinas_corrected(1:end,1:end,idx);
     for i=1:L1
         HS(:,:,i)=imresize(Io(:,:,i),0.25);
     end
     clear salinas_corrected;
     load('Salinas_gt');
-    gt = salinas_gt(end-255:end,1:217);
-    R = sum(MS(1:192,1:192,1:8),3);
-    G = sum(MS(1:192,1:192,9:16),3);
-    B = sum(MS(1:192,1:192,17:24),3);
+    gt = salinas_gt(1:end,1:end);
+    R = sum(MS(1:end,1:end,1:8),3);
+    G = sum(MS(1:end,1:end,9:16),3);
+    B = sum(MS(1:end,1:end,17:24),3);
     RGB(:,:,1) = B;
     RGB(:,:,2) = G;
     RGB(:,:,3) = R;
@@ -121,25 +121,24 @@ elseif(dataset2 ==2)
     gt2 = imresize(gt,0.25,'nearest');
     nc = max(gt(:));
 elseif(dataset2 == 3)
-    addpath(genpath('./Real-measurements-penguin'));
-    load('Nelson_FullSpectral.mat');
+     load('Hen_FullSpectral.mat');
     %load('Prism');
     %load('NelsonCA.mat');
     L1 = 96;
     L2 = 24;
-    cube = dataset;
+    cube = dataset(255:255+541,460:460+541,:);
+    cube = imresize(cube,0.5);
     idx = round(linspace(1,size(cube,3),L2));
     Io = mat2gray(cube(1:end,1:end,idx));
     MS = Io;
+    temp = MS;
     idx = round(linspace(1,size(cube,3),L1));
     Io = cube(1:end,1:end,idx);
     for i=1:L1
-        HS(:,:,i)=imresize(Io(:,:,i),[136 136]);
+        HS(:,:,i)=imresize(Io(:,:,i),0.25);
     end
     clear dataset;
     clear cube;
-    %load('Indian_pines_gt.mat');
-    %gt = indian_pines_gt(1:end,1:end);
     R = sum(MS(:,:,1:8),3);
     G = sum(MS(:,:,9:16),3);
     B = sum(MS(:,:,17:24),3);
@@ -147,18 +146,14 @@ elseif(dataset2 == 3)
     RGB(:,:,2) = G;
     RGB(:,:,3) = R;
     RGB = RGB./max(RGB(:));
-    RGB = RGB(255:255+541,460:460+541,:);
     imagesc(RGB.^.25)
     RGB1 = imresize(RGB,1);
     RGB2 = imresize(RGB,0.25);
-    load('Penguin-MS-gt.mat')
-    gt1 = imresize(gt,1,'nearest');
-    gt2 = imresize(gt,0.25,'nearest');
+    load('Hen-MS-gt.mat')
+    gt1 = imresize(gt,0.5,'nearest');
+    gt2 = imresize(gt,0.125,'nearest');
     nc = max(gt(:));
-    for i=1:L2
-        MS1(:,:,i)=imresize(Io(:,:,i),[542 542]);
-    end
-    MS = MS1;
+    MS = temp;
 else
     %% Pony Dataset
     load('Pony-MS-gt.mat')
@@ -177,10 +172,10 @@ else
     %imagesc(RGB)
 end
 
-M2 = size(RGB1,1);
-N2 = size(RGB1,2);
-M1 = size(RGB2,1);
-N1 = size(RGB2,2);
+M2 = size(MS,1);
+N2 = size(MS,2);
+M1 = size(HS,1);
+N1 = size(HS,2);
 L1 = 96;
 L2 = 24;
 
@@ -198,7 +193,7 @@ else
     figure(1)
     [T1] = multisnapshot2(RGB1,M2,N2,L2,shot1,Order_fil1,nc,G1);
     figure(2)
-    [T2] = hipersnapshot(RGB2,M1,N1,L1,shot2,Order_fil2,nc,G2);
+    [T2] = hypersnapshot(RGB2,M1,N1,L1,shot2,Order_fil2,nc,G2);
 end
 
 figure(1)
