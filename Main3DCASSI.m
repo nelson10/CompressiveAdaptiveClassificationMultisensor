@@ -29,7 +29,7 @@ shot2 = Khs(nm); %  number of hiperspectral snapshot
 %% Loading data
 md = 14; % median filter parameter
 adaptive = 1;
-dataset2 = 0; % 0 Pavia, 1 Salinas Valley, 2 Indian pines, 3 Hen
+dataset2 = 3; % 0 Pavia, 1 Salinas Valley, 2 Indian pines, 3 Hen
 
 if(dataset2 == 0)
     %% Pavia Dataset
@@ -149,7 +149,7 @@ elseif(dataset2 == 3)
     imagesc(RGB.^.25)
     RGB1 = imresize(RGB,1);
     RGB2 = imresize(RGB,0.25);
-    load('Hen-MS-gt.mat')
+    load('Hen-gt.mat')
     gt1 = imresize(gt,0.5,'nearest');
     gt2 = imresize(gt,0.125,'nearest');
     nc = max(gt(:));
