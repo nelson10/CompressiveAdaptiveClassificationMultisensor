@@ -29,7 +29,7 @@ shot2 = Khs(nm); %  number of hiperspectral snapshot
 %% Loading data
 md = 14; % median filter parameter
 adaptive = 1;
-dataset2 = 3; % 0 Pavia, 1 Salinas Valley, 2 Indian pines, 3 Hen
+dataset2 = 0; % 0 Pavia, 1 Salinas Valley, 2 Indian pines, 3 Hen
 
 if(dataset2 == 0)
     %% Pavia Dataset
@@ -186,19 +186,22 @@ YM = zeros(M2,N2,shot1);
 G1(1:round(size(G1,1)/3),1) = 1; % Capture first band of RGB
 [Order_fil2,G2] = matchFilter(gt2,HS,shot2);
 
+figure('Name',"Filters of Multispectral and Hyperspectral Arm")
+colormap('jet')
+subplot(1,2,1),imagesc(G1),title('Complementary Multispectral filters')
+subplot(1,2,2),imagesc(G2),title('Complementary Hyperspectral filters')
+
 if(adaptive == 0)
     T1 = rand(M2,N2,L2,shot1)>0.5;
     T2 = rand(M1,N1,L1,shot2)>0.5;
 else
-    figure(1)
     [T1] = multisnapshot2(RGB1,M2,N2,L2,shot1,Order_fil1,nc,G1);
-    figure(2)
     [T2] = hypersnapshot(RGB2,M1,N1,L1,shot2,Order_fil2,nc,G2);
 end
 
-figure(1)
+figure('Name',"Coded apertures in the Multispectral Arm")
 showCodedApertures(T1);
-figure(2)
+figure('Name',"Coded apertures in the Hyperspectral Arm")
 showCodedApertures(T2);
 
 
@@ -229,9 +232,9 @@ for i=1:shot2
     end
 end
 
-figure(4)
-subplot(1,2,1),imagesc(YM(:,:,1))
-subplot(1,2,2),imagesc(YH1(:,:,1))
+figure('Name',"Example of Compressive Measurements")
+subplot(1,2,1),imagesc(YM(:,:,end))
+subplot(1,2,2),imagesc(YH1(:,:,end))
 
 yh = reshape(YH1,[M2*N2,shot2]);
 yt = [ym yh];
@@ -250,6 +253,7 @@ gtHat(training_indexes) = T_classes;
 gtHat(test_indexes) = yHat;
 figure(3)
 
+figure('Name',"Classification Maps")
 subplot(1,2,1),imagesc(gt1),title('groundtruth')
 subplot(1,2,2),imagesc(gtHat),title('Proposed Algorithm')
 

@@ -22,14 +22,14 @@ addpath(genpath('./src'));
 %% Parameters
 Kms = [2 3 4 6]; % vector of number of shots multispectral
 Khs = [8 12 16 24]; %number of shots hyperspectral
-nm = 1;
+nm = 4; % Select the value of nm between  1,2,3, or 4 
 shot1 = Kms(nm); %  number of multispectral snapshot
 shot2 = Khs(nm); %  number of hyperspectral snapshot
 
 %% Loading data
 md = 12; % median filter parameter
 adaptive = 1;
-dataset2 = 3; % 0 Pavia, 1 Salinas Valley, 2 Indian pines, 3 Hen
+dataset2 = 2; % 0 Pavia, 1 Salinas Valley, 2 Indian pines, 3 Hen
 
 if(dataset2 == 0)
     %% Pavia Dataset
@@ -186,6 +186,11 @@ YM = zeros(M2,N2+L2-1,shot1);
 G1(1:round(size(G1,1)/3),1) = 1;
 [Order_fil2,G2] = matchFilter(gt2,HS,shot2);
 
+figure('Name',"Filters of Multispectral and Hyperspectral Arm")
+colormap('jet')
+subplot(1,2,1),imagesc(G1),title('Complementary Multispectral filters')
+subplot(1,2,2),imagesc(G2),title('Complementary Hyperspectral filters')
+
 if(adaptive == 0)
     T1 = rand(M2,N2,L2,shot1)>0.5;
     T2 = rand(M1,N1,L1,shot2)>0.5;
@@ -196,7 +201,7 @@ end
 
 figure('Name',"Coded apertures in the Multispectral Arm")
 showCodedApertures(T1);
-figure('Name',"Coded apertures in the Hiperspectral Arm")
+figure('Name',"Coded apertures in the Hyperspectral Arm")
 showCodedApertures(T2);
 
 size(T1)
@@ -232,11 +237,11 @@ end
 yh = reshape(YH2,[M2*N2,shot2]);
 yt = [ym yh]; 
 
-figure(4)
-subplot(2,2,1),imagesc(YM(:,:,1))
-subplot(2,2,2),imagesc(YM2(:,:,1))
-subplot(2,2,3),imagesc(YH1(:,:,1))
-subplot(2,2,4),imagesc(YH2(:,:,1))
+figure('Name',"Compressive Measurements After Cropping")
+subplot(2,2,1),imagesc(YM(:,:,end))
+subplot(2,2,2),imagesc(YM2(:,:,end))
+subplot(2,2,3),imagesc(YH1(:,:,end))
+subplot(2,2,4),imagesc(YH2(:,:,end))
 
 
 %% Classification process using SVM with Polynomial Kernel Function
@@ -252,8 +257,8 @@ yHat = predict(MdlSV1,feat_test);
 gtHat = zeros(M2,N2);
 gtHat(training_indexes) = T_classes;
 gtHat(test_indexes) = yHat;
-figure('Name',"Classification Maps")
 
+figure('Name',"Classification Maps")
 subplot(1,2,1),imagesc(gt1),title('groundtruth')
 subplot(1,2,2),imagesc(gtHat),title('Proposed Algorithm')
 
