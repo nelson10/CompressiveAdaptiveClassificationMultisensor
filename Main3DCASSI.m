@@ -233,8 +233,8 @@ for i=1:shot2
 end
 
 figure('Name',"Example of Compressive Measurements")
-subplot(1,2,1),imagesc(YM(:,:,end))
-subplot(1,2,2),imagesc(YH1(:,:,end))
+subplot(1,2,1),imagesc(YM(:,:,end)),title('Multispectral Compressive Measurement')
+subplot(1,2,2),imagesc(YH1(:,:,end)),title('Interpolated Hyperspectral Compressive Measurement')
 
 yh = reshape(YH1,[M2*N2,shot2]);
 yt = [ym yh];

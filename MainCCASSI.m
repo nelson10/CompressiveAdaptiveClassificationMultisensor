@@ -237,11 +237,11 @@ end
 yh = reshape(YH2,[M2*N2,shot2]);
 yt = [ym yh]; 
 
-figure('Name',"Compressive Measurements After Cropping")
-subplot(2,2,1),imagesc(YM(:,:,end))
-subplot(2,2,2),imagesc(YM2(:,:,end))
-subplot(2,2,3),imagesc(YH1(:,:,end))
-subplot(2,2,4),imagesc(YH2(:,:,end))
+figure('Name',"Compressive Measurements Before, and After Cropping")
+subplot(2,2,1),imagesc(YM(:,:,end)),title("Multispectral Measurement Before Cropping")
+subplot(2,2,2),imagesc(YM2(:,:,end)),title("Multispectral Measurement After Cropping")
+subplot(2,2,3),imagesc(YH1(:,:,end)),title("Interpolated Hyperspectral Measurement Before Cropping")
+subplot(2,2,4),imagesc(YH2(:,:,end)),title("Interpolated Hyperspectral Measurement After Cropping")
 
 
 %% Classification process using SVM with Polynomial Kernel Function
