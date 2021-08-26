@@ -21,4 +21,4 @@ doi = "10.36227/techrxiv.14988804.v1"
 }
 ```
 
-A pre-print is available at this [link] (https://www.techrxiv.org/articles/preprint/Adaptive_Multisensor_Acquisition_via_Spatial_Contextual_Information_for_Compressive_Spectral_Image_Classification/14988804)
+A pre-print is available at this [link](https://www.techrxiv.org/articles/preprint/Adaptive_Multisensor_Acquisition_via_Spatial_Contextual_Information_for_Compressive_Spectral_Image_Classification/14988804)
