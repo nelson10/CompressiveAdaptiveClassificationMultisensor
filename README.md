@@ -1,5 +1,11 @@
 # Adaptive Multisensor Acquisition via Spatial Contextual Information for Compressive Spectral Image Classification
 
+This repository contain the code to reproduce the results presented the paper following paper:
+
+*Diaz, Nelson, et al. "Adaptive Multisensor Acquisition via Spatial Contextual Information for Compressive Spectral Image Classification", IEEE JSTART, 2021.
+
+
+
 This repository aims to adaptive design the coded apertures from compressive spectral images acquired with a multisensor camera. The classification is performed using the captured compressive projections.
 
 ## Usage
