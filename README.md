@@ -23,7 +23,7 @@ The datasets could be download from the following [link](http://www.ehu.eus/ccwi
 
 The files should be placed in the Data folder of this repository.
 
-If you use this code or dataset, please consider citing our paper with the following Bibtex code:
+If you use this code or dataset Hen_FullSpectral.mat, please consider citing our paper with the following Bibtex code:
 
 ```
 @article{Diaz2021,
