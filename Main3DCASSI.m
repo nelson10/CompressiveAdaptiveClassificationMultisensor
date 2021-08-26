@@ -29,7 +29,7 @@ shot2 = Khs(nm); %  number of hiperspectral snapshot
 %% Loading data
 md = 14; % median filter parameter
 adaptive = 1;
-dataset2 = 3; % 0 Pavia, 1 Salinas Valley, 2 Indian pines, 3 Hen
+dataset2 = 2; % 0 Pavia, 1 Salinas Valley, 2 Indian pines, 3 Hen
 
 if(dataset2 == 0)
     %% Pavia Dataset
