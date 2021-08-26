@@ -12,8 +12,7 @@ G(1:w,1) = ones(w,1);
 for i=2:nf
     G(:,i) = circshift(G(:,i-1),w);
 end
-
-figure(1)
-colormap('jet')
-subplot(1,2,1),imagesc(G),title('Complementary filters')
+% figure(1)
+% colormap('jet')
+% subplot(1,2,1),imagesc(G),title('Complementary filters')
 end
