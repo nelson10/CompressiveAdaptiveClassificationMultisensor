@@ -9,10 +9,15 @@ This repository contain the code to reproduce the results presented the paper fo
 This repository aims to adaptive design the coded apertures from compressive spectral images acquired with a multisensor camera. The classification is performed using the captured compressive projections.
 
 ## Usage
+Download the CompressiveAdaptiveClassificationMultisensor repository
+1. Download this repository via git 
+```
+git clone https://github.com/nelson10/CompressiveAdaptiveClassificationMultisensor.git
+```
+2. To run the code using either the function Main3DCASSI or MainCCASSI that perform the sensing, Adaptive coded aperture design and classification using the compressive measurements.
 
-To run the code using either the function Main3DCASSI or MainCCASSI that perform the sensing, Adaptive coded aperture design and classification using the compressive measurements.
 
-## Dataset
+## Datasets
 
 The datasets could be download from the following [link](http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
 
