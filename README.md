@@ -27,17 +27,18 @@ The files should be placed in the Data folder of this repository.
 If you use this code or dataset Hen_FullSpectral.mat, please consider citing our paper with the following Bibtex code:
 
 ```
-@article{Diaz2021,
-author = "Nelson Diaz and Juan Marcos and Esteban Vera and Henry Arguello",
-title = "{Adaptive Multisensor Acquisition via Spatial Contextual Information for Compressive Spectral Image Classification}",
-year = "2021",
-month = "7",
-url = "https://www.techrxiv.org/articles/preprint/Adaptive_Multisensor_Acquisition_via_Spatial_Contextual_Information_for_Compressive_Spectral_Image_Classification/14988804",
-doi = "10.36227/techrxiv.14988804.v1"
-}
+@ARTICLE{9534664,
+  author={Diaz, Nelson and Ramirez, Juan Marcos and Vera, Esteban and Arguello, Henry},
+  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}, 
+  title={Adaptive Multisensor Acquisition via Spatial Contextual Information for Compressive Spectral Image Classification}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/JSTARS.2021.3111508}}
 ```
 
-A pre-print is available at this [link](https://www.techrxiv.org/articles/preprint/Adaptive_Multisensor_Acquisition_via_Spatial_Contextual_Information_for_Compressive_Spectral_Image_Classification/14988804)
+A pre-print is available at this [link](https://ieeexplore.ieee.org/document/9534664)
 
 ## Abstract
 
