@@ -2,7 +2,7 @@
 
 This repository contains the code to reproduce the results presented in the paper following paper:
 
-*Diaz, Nelson, et al. "Adaptive Multisensor Acquisition via Spatial Contextual Information for Compressive Spectral Image Classification," IEEE IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, 2021.
+*N. Diaz, J. M. Ramirez, E. Vera and H. Arguello, "Adaptive Multisensor Acquisition via Spatial Contextual Information for Compressive Spectral Image Classification," in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, doi: 10.1109/JSTARS.2021.3111508.
 
 
 
