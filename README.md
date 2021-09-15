@@ -10,7 +10,7 @@ This repository aims to adaptive design the coded apertures from compressive spe
 
 ## Usage
 
-This code was written using Matlab R2019b. It should be downloaded the CompressiveAdaptiveClassificationMultisensor repository
+This code was written using Matlab R2020b. It should be downloaded the CompressiveAdaptiveClassificationMultisensor repository
 1. Download this repository via git 
 ```
 git clone https://github.com/nelson10/CompressiveAdaptiveClassificationMultisensor.git
