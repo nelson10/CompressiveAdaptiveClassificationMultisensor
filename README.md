@@ -32,9 +32,9 @@ If you use this code or dataset Hen_FullSpectral.mat, please consider citing our
   journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}, 
   title={Adaptive Multisensor Acquisition via Spatial Contextual Information for Compressive Spectral Image Classification}, 
   year={2021},
-  volume={},
+  volume={14},
   number={},
-  pages={1-1},
+  pages={9254-9266},
   doi={10.1109/JSTARS.2021.3111508}}
 ```
 
