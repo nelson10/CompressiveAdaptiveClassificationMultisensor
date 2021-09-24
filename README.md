@@ -20,7 +20,7 @@ git clone https://github.com/nelson10/CompressiveAdaptiveClassificationMultisens
 
 ## Datasets
 
-The datasets could be download from the following [link](http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes)
+The datasets could be download from the following [link](http://www.ehu.eus/ccwintco/index.php/Hyperspectral_Remote_Sensing_Scenes) and [link](https://ieee-dataport.org/documents/hen-datacube-ground-truth)
 
 The files should be placed in the Data folder of this repository.
 
