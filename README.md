@@ -28,7 +28,7 @@ If you use this code or dataset Hen_FullSpectral.mat, please consider citing our
 
 ```
 @ARTICLE{9534664,
-  author={Diaz, Nelson and Ramirez, Juan Marcos and Vera, Esteban and Arguello, Henry},
+  author={Diaz, Nelson and Ramirez, Juan and Vera, Esteban and Arguello, Henry},
   journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}, 
   title={Adaptive Multisensor Acquisition via Spatial Contextual Information for Compressive Spectral Image Classification}, 
   year={2021},
