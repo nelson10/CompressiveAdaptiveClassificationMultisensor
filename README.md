@@ -1,5 +1,8 @@
 # Adaptive Multisensor Acquisition via Spatial Contextual Information for Compressive Spectral Image Classification
 
+[Nelson Diaz](https://nelson10.github.io), [Juan Ramirez](https://juanmarcosramirez.github.io/), 
+[Esteban Vera](https://www.pucv.cl/uuaa/escuela-de-ingenieria-electrica/profesores-jornada-completa/esteban-vera-rojas), [Henry Arguello](http://hdspgroup.com/)
+
 This repository contains the code to reproduce the results presented in the paper following paper:
 
 *N. Diaz, J. M. Ramirez, E. Vera and H. Arguello, "Adaptive Multisensor Acquisition via Spatial Contextual Information for Compressive Spectral Image Classification," in IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing, doi: 10.1109/JSTARS.2021.3111508.
